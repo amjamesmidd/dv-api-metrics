@@ -997,7 +997,6 @@ class DataverseCollectionHarvestDatasetViewsUniqueReport(DataverseMetricsReportB
     Report for cumulative and monthly collection downloads.
 
     Uses the following endpoints:
-    - api/info/metrics/uniquedownloads
     - api/dataverses/{$collection}/contents
     - api/datasets/:persistentId/?persistentId={$id}
     -
@@ -1270,6 +1269,146 @@ class DataverseCollectionDatasetCitationReport(DataverseMetricsReportBaseClass):
 
         # process results to create one table
         processed_datasets = self._process_results(all_citations)
+
+        # handle empty results
+        if not processed_datasets:
+            return self._raw_data
+
+        # create dataframe from processed results
+        df = pl.from_dicts(processed_datasets)
+        df = df.fill_null(0)
+        self._raw_data = df.clone()  # cache raw data
+
+
+        # return the raw data
+        return self._raw_data
+
+class DataverseCollectionHarvestCountDatasetsReport(DataverseMetricsReportBaseClass):
+    """
+    Report for harfvested dataset counts.
+
+    Uses the following endpoints:
+    - api/dataverses/{$collection}/contents
+    -
+
+    Parameters
+    ----------
+    server : str
+        Url for server to query (e.g., https://demo.dataverse.org)
+    collection : str
+        Name of collection metrics to retrieve
+    """
+
+    def __init__(self, server: str, collection: str):
+        self._name = 'Dataverse Cumulative and Monthy Collection Unique Downloads Report'
+        self._description = 'TBD'
+        self._server_url = server
+
+        # parameters
+        self.collection = collection
+
+        # datasets
+        self._raw_data = DataFrame()
+
+    @property
+    def name(self) -> str:
+        """report name"""
+        return self._name
+
+    @name.setter
+    def name(self, name: str):
+        """set report name"""
+        pass
+
+    @name.getter
+    def name(self):
+        """get report name"""
+        return self._name
+
+    @property
+    def description(self) -> str:
+        """report description"""
+        return self._description
+
+    @description.setter
+    def description(self, description: str):
+        """set report description"""
+        pass
+
+    @description.getter
+    def description(self):
+        """get report description"""
+        return self._description
+
+    @property
+    def data(self) -> DataFrame:
+        """report data"""
+        return self._raw_data
+
+    @data.setter
+    def data(self, **kwargs):
+        """set report data"""
+        pass
+
+    @data.getter
+    def data(self) -> DataFrame:
+        """get report data"""
+        return self._raw_data
+
+    def _remove_local_datasets(self, datasets: dict) -> dict:
+        """
+        Remove any harvested datasets from an input dictionary
+        """
+        if not datasets:
+            return {}
+
+        harvested_datasets = copy.deepcopy(datasets)
+        for dataset in datasets:
+            if self._is_local(dataset):
+                del harvested_datasets[dataset]
+        return harvested_datasets
+
+    def _process_results(self,  total: int) -> list:
+        """
+        Combine each dataset's collection, details, and download information
+        """
+        if not total:
+            return []
+
+        results = []
+        result = {'total_harvested_datasets': total}
+        results.append(result)
+
+        return results
+
+    def generate(self, api_token: str) -> DataFrame:
+        """generate the report"""
+        # dict of current collection & subcollections metadata
+        all_collections = {}
+
+        # get top-level collection metadata
+        # this collection may contain datasets as well as subcollections
+        all_collections[self.collection] = self._get_collection_metadata(self.collection, api_token)
+
+        # get top-level collection's subcollections
+        subcollections = self._get_subcollections(self.collection, api_token)
+
+        # add subcollections to all collections
+        all_collections = all_collections | subcollections
+
+        # get datasets for all collections
+        all_collection_datasets = {}
+        for collection in all_collections.keys():
+            alias = all_collections[collection]['alias']
+            datasets = self._get_collection_datasets(alias, api_token)
+            all_collection_datasets = all_collection_datasets | datasets
+
+        # remove local datasets, leaving only harvested datasets
+        all_collection_datasets = self._remove_local_datasets(all_collection_datasets)
+        total_harvested_datasets = len(all_collection_datasets)
+
+        # process results to create one table
+        processed_datasets = self._process_results(total_harvested_datasets)
 
         # handle empty results
         if not processed_datasets:
