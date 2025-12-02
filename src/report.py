@@ -1509,8 +1509,8 @@ class DataverseCollectionDatasetsPerSubjectCount(DataverseMetricsReportBaseClass
     def generate(self, api_token: str) -> DataFrame:
         """generate the report"""
         # Get count of harvested datasets for the main collection
-        harvested_count_query = api.DataverseDatasetsPerSubjectCount(self._server_url, dvAlias=self.collection)
-        result = harvested_count_query.execute(api_token)
+        datasets_per_subject_count_query = api.DataverseDatasetsPerSubjectCount(self._server_url, dvAlias=self.collection)
+        result = datasets_per_subject_count_query.execute(api_token)
 
         if result['status_code'] != 200:
             # Return empty dataframe if query failed
