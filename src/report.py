@@ -1422,3 +1422,117 @@ class DataverseCollectionHarvestCountDatasetsReport(DataverseMetricsReportBaseCl
 
         # return the raw data
         return self._raw_data
+
+class DataverseCollectionDatasetsPerSubjectCount(DataverseMetricsReportBaseClass):
+    """
+    Report for counting datasets per subject in a collection and its subcollections.
+
+    Uses the Search API endpoint to count datasets with dataLocation=remote
+
+    Parameters
+    ----------
+    server : str
+        Url for server to query (e.g., https://demo.dataverse.org)
+    collection : str
+        Name of collection to count harvested datasets for
+    """
+
+    def __init__(self, server: str, collection: str):
+        self._name = 'Dataverse Collection Datasets per Subject Count Report'
+        self._description = 'Count of datasets per subject in a collection and its subcollections'
+        self._server_url = server
+
+        # parameters
+        self.collection = collection
+
+        # datasets
+        self._raw_data = DataFrame()
+
+    @property
+    def name(self) -> str:
+        """report name"""
+        return self._name
+
+    @name.setter
+    def name(self, name: str):
+        """set report name"""
+        pass
+
+    @name.getter
+    def name(self):
+        """get report name"""
+        return self._name
+
+    @property
+    def description(self) -> str:
+        """report description"""
+        return self._description
+
+    @description.setter
+    def description(self, description: str):
+        """set report description"""
+        pass
+
+    @description.getter
+    def description(self):
+        """get report description"""
+        return self._description
+
+    @property
+    def data(self) -> DataFrame:
+        """report data"""
+        return self._raw_data
+
+    @data.setter
+    def data(self, **kwargs):
+        """set report data"""
+        pass
+
+    @data.getter
+    def data(self) -> DataFrame:
+        """get report data"""
+        return self._raw_data
+
+    def _process_results(self,  subjects: list) -> list:
+        """
+        Process subject facets to extract labels and counts
+        """
+        if not subjects:
+            return []
+
+        results = []
+        for label_dict in subjects['labels']:
+            for subject_name, count in label_dict.items():
+                results.append({'subject': subject_name, 'count': count})
+        return results
+
+    def generate(self, api_token: str) -> DataFrame:
+        """generate the report"""
+        # Get count of harvested datasets for the main collection
+        harvested_count_query = api.DataverseDatasetsPerSubjectCount(self._server_url, dvAlias=self.collection)
+        result = harvested_count_query.execute(api_token)
+
+        if result['status_code'] != 200:
+            # Return empty dataframe if query failed
+            return self._raw_data
+
+        # Extract subject facets from the search results
+        subjects = result['data'][0].get('subject_ss', []) if result['data'] else []
+
+        # process results to create one table
+        processed_subjects = self._process_results(subjects)
+
+        # Create dataframe from processed subject data
+        if processed_subjects:
+            df = pl.from_dicts(processed_subjects)
+        else:
+            # Create empty dataframe with expected columns if no data
+            df = pl.DataFrame({
+                'subject': [],
+                'count': []
+            })
+
+        self._raw_data = df.clone()  # cache raw data
+
+        # return the raw data
+        return self._raw_data

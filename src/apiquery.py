@@ -35,7 +35,7 @@ class APIQueryBaseClass(ABC):
         str
         """
         return ''
-    
+
     @property
     @abstractmethod 
     def endpoint(self) -> str:
@@ -54,7 +54,7 @@ class APIQueryBaseClass(ABC):
         str
         """
         return ''
-    
+
     @property
     @abstractmethod
     def parameters(self):
@@ -95,7 +95,7 @@ class APIQueryBaseClass(ABC):
         bool
         """
         pass
-    
+
     @abstractmethod
     def execute(self, api_token : str) -> dict:
         """
@@ -185,7 +185,7 @@ class DataverseMetricsAPIQuery(APIQueryBaseClass):
         if None in values:
             return False
         return True
-    
+
     def execute(self, api_token: str) -> dict:
         """
         Execute API query
@@ -219,7 +219,7 @@ class DataverseUniqueDownloadsMonthly(DataverseMetricsAPIQuery):
     @property
     def parameters(self):
         return self._parameters
-    
+
     @parameters.getter
     def parameters(self):
         """
@@ -230,7 +230,7 @@ class DataverseUniqueDownloadsMonthly(DataverseMetricsAPIQuery):
         dict        
         """
         return self._parameters
-    
+
     @parameters.setter
     def parameters(self, params : dict):
         for key in params.keys():
@@ -262,7 +262,7 @@ class DataverseUniqueDownloadsMonthly(DataverseMetricsAPIQuery):
                 'reason': r.reason,
                 'data': []
             }
-        
+
         return {
             'status_code':r.status_code,
             'reason': r.reason,
@@ -359,7 +359,7 @@ class DataverseDatasetDetails(DataverseMetricsAPIQuery):
     def endpoint(self) -> str:
         #return 'api/datasets/:persistentId'
         return 'api/datasets/:persistentId/versions/:latest-published'
-    
+
     @endpoint.setter
     def endpoint(self, endpoint : str):
         """
@@ -374,7 +374,7 @@ class DataverseDatasetDetails(DataverseMetricsAPIQuery):
     @property
     def parameters(self):
         return self._parameters
-    
+
     @parameters.setter
     def parameters(self, params : dict):
         """
@@ -407,7 +407,7 @@ class DataverseDatasetDetails(DataverseMetricsAPIQuery):
         """
         if not self.validate_parameters():
             raise Exception('Invalid parameter values')
-        
+
         pid = self._parameters['persistentId']
 
         headers = {}
@@ -425,7 +425,7 @@ class DataverseDatasetDetails(DataverseMetricsAPIQuery):
                 'reason': r.reason,
                 'data': []
             }
-        
+
         return {
             'status_code':r.status_code,
             'reason': r.reason,
@@ -445,7 +445,7 @@ class DataverseCollectionTreeHierarchy(DataverseMetricsAPIQuery):
     @property
     def endpoint(self) -> str:
         return 'api/info/metrics/tree'
-    
+
     @endpoint.setter
     def endpoint(self, endpoint : str):
         """
@@ -456,7 +456,7 @@ class DataverseCollectionTreeHierarchy(DataverseMetricsAPIQuery):
     @property
     def parameters(self):
         return self._parameters
-    
+
     @parameters.setter
     def parameters(self, params : dict):
         """
@@ -484,7 +484,7 @@ class DataverseCollectionTreeHierarchy(DataverseMetricsAPIQuery):
         """
         if not self.validate_parameters():
             raise Exception(f'Invalid parameter value in: {self._parameters}')
-        
+
         headers = {}
         headers['Accept'] = 'application/json'
         headers['X-Dataverse-key'] = api_token
@@ -500,13 +500,13 @@ class DataverseCollectionTreeHierarchy(DataverseMetricsAPIQuery):
                 'reason': r.reason,
                 'data': []
             }
-        
+
         return {
             'status_code':r.status_code,
             'reason': r.reason,
             'data': r.json()['data']
         }
-        
+
 class DataverseShowCollectionContents(DataverseMetricsAPIQuery):
     """
     Get the contents of a collection (non-nesting)
@@ -524,7 +524,7 @@ class DataverseShowCollectionContents(DataverseMetricsAPIQuery):
     @property
     def parameters(self):
         return self._parameters
-    
+
     @parameters.setter
     def parameters(self, params : dict):
         """
@@ -555,7 +555,7 @@ class DataverseShowCollectionContents(DataverseMetricsAPIQuery):
         """
         if not self.validate_parameters():
             raise Exception(f'Invalid parameter value in: {self._parameters}')
-        
+
         headers = {}
         headers['Accept'] = 'application/json'
         headers['X-Dataverse-key'] = api_token
@@ -571,13 +571,13 @@ class DataverseShowCollectionContents(DataverseMetricsAPIQuery):
                 'reason': r.reason,
                 'data': []
             }
-        
+
         return {
             'status_code':r.status_code,
             'reason': r.reason,
             'data': r.json()['data']
         }
-        
+
 class DataverseViewCollection(DataverseMetricsAPIQuery):
     """
     View a collection's metadata
@@ -595,7 +595,7 @@ class DataverseViewCollection(DataverseMetricsAPIQuery):
     @property
     def parameters(self):
         return self._parameters
-    
+
     @parameters.setter
     def parameters(self, params : dict):
         """
@@ -626,7 +626,7 @@ class DataverseViewCollection(DataverseMetricsAPIQuery):
         """
         if not self.validate_parameters():
             raise Exception(f'Invalid parameter value in: {self._parameters}')
-        
+
         headers = {}
         headers['Accept'] = 'application/json'
         headers['X-Dataverse-key'] = api_token
@@ -642,13 +642,13 @@ class DataverseViewCollection(DataverseMetricsAPIQuery):
                 'reason': r.reason,
                 'data': []
             }
-        
+
         return {
             'status_code':r.status_code,
             'reason': r.reason,
             'data': r.json()['data']
         }
-    
+
 class DataverseDatasetSearch(DataverseMetricsAPIQuery):
     """
     Retrieve dataset metadata from the Search API
@@ -666,7 +666,7 @@ class DataverseDatasetSearch(DataverseMetricsAPIQuery):
     @property
     def parameters(self):
         return self._parameters
-    
+
     @parameters.setter
     def parameters(self, params : dict):
         """
@@ -702,7 +702,7 @@ class DataverseDatasetSearch(DataverseMetricsAPIQuery):
         """
         if not self.validate_parameters():
             raise Exception(f'Invalid parameter value in: {self._parameters}')
-        
+
         headers = {}
         headers['Accept'] = 'application/json'
         headers['X-Dataverse-key'] = api_token
@@ -718,13 +718,13 @@ class DataverseDatasetSearch(DataverseMetricsAPIQuery):
                 'reason': r.reason,
                 'data': []
             }
-        
+
         return {
             'status_code':r.status_code,
             'reason': r.reason,
             'data': r.json()['data']
         }
-    
+
 class DataverseCollectionDownloadsMonthly(DataverseMetricsAPIQuery):
     """
     Retrieve cumulative monthly downloads
@@ -744,7 +744,7 @@ class DataverseCollectionDownloadsMonthly(DataverseMetricsAPIQuery):
     @property
     def parameters(self):
         return self._parameters
-    
+
     @parameters.setter
     def parameters(self, params : dict):
         """
@@ -772,7 +772,7 @@ class DataverseCollectionDownloadsMonthly(DataverseMetricsAPIQuery):
         """
         if not self.validate_parameters():
             raise Exception(f'Invalid parameter value in: {self._parameters}')
-        
+
         headers = {}
         headers['Accept'] = 'application/json'
         headers['X-Dataverse-key'] = api_token
@@ -788,13 +788,13 @@ class DataverseCollectionDownloadsMonthly(DataverseMetricsAPIQuery):
                 'reason': r.reason,
                 'data': []
             }
-        
+
         return {
             'status_code':r.status_code,
             'reason': r.reason,
             'data': r.json()['data']
         }
-    
+
 class DataverseMDCUniqueViews(DataverseMetricsAPIQuery):
     """
     Retrieve Make Data Count unique dataset views
@@ -816,7 +816,7 @@ class DataverseMDCUniqueViews(DataverseMetricsAPIQuery):
     @property
     def parameters(self):
         return self._parameters
-    
+
     @parameters.setter
     def parameters(self, params : dict):
         """
@@ -844,7 +844,7 @@ class DataverseMDCUniqueViews(DataverseMetricsAPIQuery):
         """
         if not self.validate_parameters():
             raise Exception(f'Invalid parameter value in: {self._parameters}')
-        
+
         headers = {}
         headers['Accept'] = 'application/json'
         headers['X-Dataverse-key'] = api_token
@@ -860,7 +860,7 @@ class DataverseMDCUniqueViews(DataverseMetricsAPIQuery):
                 'reason': r.reason,
                 'data': {}
             }
-        
+
         return {
             'status_code':r.status_code,
             'reason': r.reason,
@@ -1011,4 +1011,121 @@ class DataverseMDCCitations(DataverseMetricsAPIQuery):
             'status_code': r.status_code,
             'reason': r.reason,
             'data': r.json()['data']
+        }
+
+class DataverseDatasetsPerSubjectCount(DataverseMetricsAPIQuery):
+    """
+    Retrieve count of harvested datasets in a collection using Search API
+
+    See: https://guides.dataverse.org/en/latest/api/search.html
+
+    Endpoint: api/search
+    """
+
+    def __init__(self, server, **kwargs):
+        super().__init__(server)
+        self._parameters = {
+            'dvAlias': kwargs.get('dvAlias', None),
+            'type': 'dataset',
+            'dataLocation': 'remote',
+            'per_page': 1000,
+            'start': 0
+        }
+
+    @property
+    def endpoint(self) -> str:
+        return 'api/search'
+
+    @property
+    def parameters(self):
+        return self._parameters
+
+    @parameters.setter
+    def parameters(self, params: dict):
+        """
+        Set API parameters
+
+        Parameter
+        ---------
+        params : dict
+        """
+        for key in params.keys():
+            if not key in self._parameters.keys():
+                raise Exception(f'Invalid parameter: {key}')
+            self._parameters[key] = params[key]
+
+    def validate_parameters(self) -> bool:
+        """
+        Validate parameters and their values
+
+        Return
+        ------
+        bool
+        """
+        # dvAlias can be None (searches all collections), but other parameters should not be None
+        required_params = ['type', 'dataLocation', 'per_page', 'start']
+        for param in required_params:
+            if self._parameters.get(param) is None:
+                return False
+        return True
+
+    def execute(self, api_token: str) -> dict:
+        """
+        Query api
+
+        Return
+        ------
+        dict:
+            {'status_code': code, 'data':{data}}
+            data fields:
+                total_count, count_in_response, items
+        """
+        if not self.validate_parameters():
+            raise Exception(f'Invalid parameter value in: {self._parameters}')
+
+        headers = {}
+        headers['Accept'] = 'application/json'
+        headers['X-Dataverse-key'] = api_token
+
+        # Build query parameters for search API with facets
+        params = {
+            'q': '*',  # Search for all datasets
+            'type': self._parameters['type'],
+            'dataLocation': self._parameters['dataLocation'],
+            'per_page': self._parameters['per_page'],
+            'start': self._parameters['start'],
+            'show_facets': 'true'  # Enable facets to get subject counts
+        }
+
+        # Add dvAlias if provided
+        if self._parameters['dvAlias']:
+            params['subtree'] = self._parameters['dvAlias']
+
+        request_url = f'{self.server_url}/{self.endpoint}'
+
+        r = requests.get(request_url, headers=headers, params=params)
+
+        if not r.status_code == requests.codes.ok:
+            return {
+                'status_code': r.status_code,
+                'reason': r.reason,
+                'data': []
+            }
+
+        # Extract facets from the response
+        response_data = r.json()['data']
+        facets = response_data.get('facets', [])
+
+        # Find the subject_ss facet
+        subject_facet = None
+        for facet in facets:
+            if 'subject_ss' in facet:
+                subject_facet = facet['subject_ss']
+                break
+
+        # Return in the format expected by report.py
+        return {
+            'status_code': r.status_code,
+            'reason': r.reason,
+            'data': [{'subject_ss': subject_facet}] if subject_facet else []
         }
