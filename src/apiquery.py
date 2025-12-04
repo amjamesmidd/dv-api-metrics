@@ -1027,7 +1027,7 @@ class DataverseDatasetsPerSubjectCount(DataverseMetricsAPIQuery):
         self._parameters = {
             'dvAlias': kwargs.get('dvAlias', None),
             'type': 'dataset',
-            'dataLocation': 'remote',
+#            'dataLocation': 'remote',
             'per_page': 1000,
             'start': 0
         }
@@ -1054,21 +1054,6 @@ class DataverseDatasetsPerSubjectCount(DataverseMetricsAPIQuery):
                 raise Exception(f'Invalid parameter: {key}')
             self._parameters[key] = params[key]
 
-    def validate_parameters(self) -> bool:
-        """
-        Validate parameters and their values
-
-        Return
-        ------
-        bool
-        """
-        # dvAlias can be None (searches all collections), but other parameters should not be None
-        required_params = ['type', 'dataLocation', 'per_page', 'start']
-        for param in required_params:
-            if self._parameters.get(param) is None:
-                return False
-        return True
-
     def execute(self, api_token: str) -> dict:
         """
         Query api
@@ -1089,17 +1074,10 @@ class DataverseDatasetsPerSubjectCount(DataverseMetricsAPIQuery):
 
         # Build query parameters for search API with facets
         params = {
-            'q': '*',  # Search for all datasets
+            'q': self._parameters['dvAlias'] if self._parameters['dvAlias'] else '*',  # Use collection if provided, otherwise search all
             'type': self._parameters['type'],
-            'dataLocation': self._parameters['dataLocation'],
-            'per_page': self._parameters['per_page'],
-            'start': self._parameters['start'],
             'show_facets': 'true'  # Enable facets to get subject counts
         }
-
-        # Add dvAlias if provided
-        if self._parameters['dvAlias']:
-            params['subtree'] = self._parameters['dvAlias']
 
         request_url = f'{self.server_url}/{self.endpoint}'
 

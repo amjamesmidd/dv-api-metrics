@@ -56,7 +56,7 @@ def main():
         # set default filename
         tod = datetime.now()
         timestamp = tod.strftime('%Y_%m_%d_%H_%M')
-        filename = f'harvested_datasets_count_{timestamp}.tsv'
+        filename = f'collection_datasets_per_subject_count_{timestamp}.tsv'
         logging.info(f'Using default output file: {filename}')       
 
     api_token = os.getenv('DATAVERSE_API_TOKEN')
