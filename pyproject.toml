@@ -1,0 +1,79 @@
+[project]
+name = "dv-api-metrics"
+version = "0.2.8"
+description = "Python code to collect metrics from datasets in Dataverse collections"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+keywords = ["dataverse", "metrics", "api", "cafe"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "certifi>=2025.6.15",
+    "charset-normalizer==3.4.2",
+    "idna==3.10",
+    "jinja2>=3.1.6",
+    "mako==1.3.10",
+    "markdown==3.8.2",
+    "markupsafe==3.0.2",
+    "pdoc==15.0.4",
+    "pdoc3==0.11.6",
+    "polars==1.31.0",
+    "pygments==2.19.2",
+    "python-dotenv==1.1.1",
+    "requests==2.32.4",
+    "urllib3==2.5.0",
+]
+
+
+[project.optional-dependencies]
+docs = [
+    "pdoc>=15.0.0",
+    "pdoc3>=0.11.0",
+    "Mako>=1.3.0",
+    "Markdown>=3.8.0",
+    "Pygments>=2.19.0",
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[project.scripts]
+# Define CLI entry points for your scripts
+dv-collection-citations = "dv_api_metrics.scripts.get_collection_dataset_citations:main"
+dv-collection-inventory = "dv_api_metrics.scripts.get_collection_dataset_inventory:main"
+dv-collection-subjects = "dv_api_metrics.scripts.get_collection_datasets_per_subject_count:main"
+dv-harvest-counts = "dv_api_metrics.scripts.get_collection_harvest_dataset_counts:main"
+dv-harvest-views = "dv_api_metrics.scripts.get_collection_harvest_dataset_views:main"
+dv-monthly-datasets = "dv_api_metrics.scripts.get_collection_monthly_datasets:main"
+dv-monthly-downloads = "dv_api_metrics.scripts.get_collection_unique_monthly_downloads:main"
+
+[project.urls]
+Homepage = "https://github.com/yourusername/dv-api-metrics"
+Repository = "https://github.com/yourusername/dv-api-metrics"
+Documentation = "https://github.com/yourusername/dv-api-metrics#readme"
+
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/dv_api_metrics"]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
