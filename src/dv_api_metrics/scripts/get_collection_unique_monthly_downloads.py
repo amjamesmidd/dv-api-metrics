@@ -32,7 +32,7 @@ def main():
 
     Usage
     -----
-    % python get_collection_metrics.py <installation> <collection> \
+    % python get_collection_unique_monthly_downloads.py <installation> <collection> \
         --metrics [dvm | mdc] --filename <filename> --output [records|time_series] --verbose
     """
     parser = argparse.ArgumentParser(
