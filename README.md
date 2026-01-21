@@ -24,7 +24,7 @@ The reports can be run with simple commands, such as:
 - ``dv-harvest-views CAFE``
 - ``dv-monthly-downloads CAFE``
 
-These commands will produce the reports in your current directory (e.g., dv_api_metrics_reports`). Please note, these reports may fail randomly for various reasons related to accessing these via the REST APIs - most typically a 403 forbidden result code probably due to rate limiting. If a report fails, it will eventually succeed when run later.
+These commands will produce the reports in your current directory (e.g., `~./dv_api_metrics_reports`). Please note, these reports may fail randomly for various reasons related to accessing these via the REST APIs - most typically a 403 forbidden result code probably due to rate limiting. If a report fails, it will eventually succeed when run later.
 
 ## Detailed Usage
 
