@@ -70,6 +70,41 @@ def main():
 
     logging.info(f'Wrote dataset inventory to: {filename}')
 
+    # Also write unique authors, affiliations, and locations (countries) to a separate txt file
+    try:
+        # Derive a companion .txt filename next to the TSV/CSV
+        root, ext = os.path.splitext(filename)
+        counts_filename = f"{root}_unique_counts.txt"
+
+        # Access the collected unique sets on the report instance
+        unique_authors = sorted(getattr(report, '_unique_authors', set()))
+        unique_affils = sorted(getattr(report, '_unique_affiliations', set()))
+        unique_locations = sorted(getattr(report, '_unique_locations', set()))
+
+        # Build content
+        lines = []
+        lines.append(f"Unique Authors ({len(unique_authors)}):\n")
+        for a in unique_authors:
+            lines.append(f"- {a}\n")
+        lines.append("\n")
+
+        lines.append(f"Unique Affiliations ({len(unique_affils)}):\n")
+        for aff in unique_affils:
+            lines.append(f"- {aff}\n")
+        lines.append("\n")
+
+        # Treat collected locations as countries where available
+        lines.append(f"Unique Countries/Locations ({len(unique_locations)}):\n")
+        for loc in unique_locations:
+            lines.append(f"- {loc}\n")
+
+        with open(counts_filename, 'w', encoding='utf-8') as fh:
+            fh.writelines(lines)
+
+        logging.info(f'Wrote unique counts and values to: {counts_filename}')
+    except Exception as ex:
+        logging.error(f"Failed to write unique counts file: {ex}")
+
 if __name__ == "__main__":
     main()
 

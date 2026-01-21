@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 import polars as pl
 from polars import DataFrame
 import requests
+import time
 import copy
 from dv_api_metrics import apiquery as api
 
@@ -107,6 +108,10 @@ class DataverseMetricsReportBaseClass(MetricsReportBaseClass):
         self._name = ''
         self._description = ''
         self._server_url = server_url
+        # Running unique counters (authors, affiliations, locations)
+        self._unique_authors = set()
+        self._unique_affiliations = set()
+        self._unique_locations = set()
 
     """
     Class properties and setters/getters
@@ -159,6 +164,19 @@ class DataverseMetricsReportBaseClass(MetricsReportBaseClass):
     """
     Private class methods
     """
+
+    # Running counts/properties for unique entities collected while fetching dataset details
+    @property
+    def unique_authors_count(self) -> int:
+        return len(self._unique_authors)
+
+    @property
+    def unique_affiliations_count(self) -> int:
+        return len(self._unique_affiliations)
+
+    @property
+    def unique_locations_count(self) -> int:
+        return len(self._unique_locations)
     def _get_collection_metadata(self, collection : str, api_token : str) -> dict:
         """
         Get a collection's metadata
@@ -262,10 +280,15 @@ class DataverseMetricsReportBaseClass(MetricsReportBaseClass):
             return {}
 
         data = result['data']
+        md = data['metadataBlocks']
         fields = data['metadataBlocks']['citation']['fields']
 
         details = {}
         details['parent_alias'] = collection
+        # Local collectors for running unique counts
+        found_authors = set()
+        found_affiliations = set()
+        found_locations = set()
         for field in fields:
             if field['typeName'] == 'title':
                 details['title'] = field.get('value', '')
@@ -275,7 +298,94 @@ class DataverseMetricsReportBaseClass(MetricsReportBaseClass):
             details['publication_date'] = data.get('publicationDate', '')
             details['version_number'] = data.get('versionNumber', 'DRAFT')
             details['minor_version_number'] = data.get('versionMinorNumber', 'DRAFT')
-        details['num_files'] = len(data['files'])
+            # Robust parsing for authors list (Dataverse 'author' compound field)
+            if field['typeName'] == 'author':
+                try:
+                    for author in field.get('value', []) or []:
+                        name = None
+                        aff = None
+                        # authorName and authorAffiliation are usually compound subfields
+                        if isinstance(author, dict):
+                            name = (author.get('authorName') or {}).get('value')
+                            aff = (author.get('authorAffiliation') or {}).get('value')
+                        if name:
+                            found_authors.add(str(name))
+                            # Preserve prior behavior of a single 'author' on details if not already set
+                            if 'author' not in details:
+                                details['author'] = str(name)
+                        if aff:
+                            found_affiliations.add(str(aff))
+                            if 'affiliation' not in details:
+                                details['affiliation'] = str(aff)
+                except Exception:
+                    # Be conservative: don't break on unexpected structures
+                    pass
+            # Legacy/alternate structure handling (keep existing behavior)
+            if field['typeName'] == 'citation':
+                value = field['value']
+                try:
+                    details['author'] = value[0]['authorName']['value']
+                    if details.get('author'):
+                        found_authors.add(str(details['author']))
+                except Exception:
+                    pass
+            if field['typeName'] == 'authorAffiliation':
+                value = field['value']
+                try:
+                    # Sometimes this is a list of compounds, sometimes a list of strings
+                    if isinstance(value, list) and value:
+                        if isinstance(value[0], dict):
+                            aff_val = value[0].get('authorAffiliation', {}).get('value')
+                            if aff_val:
+                                details['affiliation'] = aff_val
+                                found_affiliations.add(str(aff_val))
+                        else:
+                            # list of raw strings
+                            details['affiliation'] = str(value[0])
+                            found_affiliations.add(str(value[0]))
+                except Exception:
+                    pass
+            details['num_files'] = len(data['files'])
+
+        # Attempt to collect geographic locations from the 'geospatial' block if present
+        try:
+            geospatial = md.get('geospatial', {})
+            for gfield in geospatial.get('fields', []) or []:
+                if gfield.get('typeName') in ('country', 'state', 'city', 'geographicCoverage', 'otherGeographicCoverage'):
+                    gv = gfield.get('value')
+                    # Normalize to list of strings
+                    values_to_add = []
+                    if isinstance(gv, list):
+                        for item in gv:
+                            if isinstance(item, dict):
+                                # common shape: {'country': {'value': 'USA'}} or similar
+                                # collect any nested 'value' strings
+                                for v in item.values():
+                                    if isinstance(v, dict) and 'value' in v and isinstance(v['value'], str):
+                                        values_to_add.append(v['value'])
+                            elif isinstance(item, str):
+                                values_to_add.append(item)
+                    elif isinstance(gv, dict):
+                        # compound, try keys
+                        for v in gv.values():
+                            if isinstance(v, dict) and 'value' in v and isinstance(v['value'], str):
+                                values_to_add.append(v['value'])
+                    elif isinstance(gv, str):
+                        values_to_add.append(gv)
+
+                    for loc in values_to_add:
+                        if loc:
+                            found_locations.add(str(loc))
+        except Exception:
+            pass
+
+        # Update running unique sets at the instance level
+        if found_authors:
+            self._unique_authors.update(found_authors)
+        if found_affiliations:
+            self._unique_affiliations.update(found_affiliations)
+        if found_locations:
+            self._unique_locations.update(found_locations)
 
         return details
 
@@ -374,6 +484,10 @@ class DataverseCollectionDatasetUniqueDownloadsReport(DataverseMetricsReportBase
 
         # parameters
         self.collection = collection
+        # Running unique counters (authors, affiliations, locations)
+        self._unique_authors = set()
+        self._unique_affiliations = set()
+        self._unique_locations = set()
 
         # datasets
         self._raw_data = DataFrame()
@@ -516,13 +630,15 @@ class DataverseCollectionDatasetUniqueDownloadsReport(DataverseMetricsReportBase
             meta = all_collections.get(collection) or {}
             alias = meta.get('alias')
             if not alias:
+                # Informative message when collection metadata lacks an alias
+                print(f"Warning: Missing alias for collection '{collection}'. Skipping due to incomplete metadata.")
                 # Skip any collections with missing metadata (e.g., subcollection fetch failed)
                 continue
             datasets = self._get_collection_datasets(alias, api_token)
             all_collection_datasets = all_collection_datasets | datasets
 
         # remove harvested datasets
-        all_collection_datasets = self._remove_harvested_datasets(all_collection_datasets)
+        #all_collection_datasets = self._remove_harvested_datasets(all_collection_datasets)
 
         # get all dataset details
         all_datasets_details = {}
@@ -900,6 +1016,10 @@ class DataverseCollectionDatasetInventoryReport(DataverseMetricsReportBaseClass)
         self._name = 'Dataverse Collection Dataset Inventory Report'
         self._description = 'TBD'
         self._server_url = server
+        # Running unique counters (authors, affiliations, locations)
+        self._unique_authors = set()
+        self._unique_affiliations = set()
+        self._unique_locations = set()
 
         # parameters
         self.collection = collection
