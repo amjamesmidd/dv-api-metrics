@@ -1,6 +1,6 @@
 [project]
 name = "dv-api-metrics"
-version = "0.2.8"
+version = "0.2.9"
 description = "Python code to collect metrics from datasets in Dataverse collections"
 readme = "README.md"
 license = {text = "MIT"}
