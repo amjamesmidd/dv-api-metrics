@@ -957,7 +957,7 @@ class DataverseMDCCitations(DataverseMetricsAPIQuery):
 
     @property
     def endpoint(self) -> str:
-        return f'api/datasets/:persistentId/makeDataCount/citations/'
+        return f'api/datasets/:persistentId/makeDataCount/citationspython '
 
     @property
     def parameters(self):
