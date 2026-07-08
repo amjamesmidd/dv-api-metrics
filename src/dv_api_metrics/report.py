@@ -4,7 +4,13 @@ from polars import DataFrame
 import requests
 import time
 import copy
+import sys
+import logging
+
+sys.path.insert(0, '/Users/alliej/Desktop/bu/CAFE/use_api/dv-api-metrics/src')
 from dv_api_metrics import apiquery as api
+
+logging.getLogger("urllib3").setLevel(logging.CRITICAL)
 
 class MetricsReportBaseClass(ABC):
     """
@@ -1676,3 +1682,210 @@ class DataverseCollectionDatasetsPerSubjectCount(DataverseMetricsReportBaseClass
 
         # return the raw data
         return self._raw_data
+
+class DataverseCollectionDatasetMetadataExportReport(DataverseMetricsReportBaseClass):
+
+    """
+    Report exporting metadata for all datasets in a collection
+    and its subcollections in specified format(s).
+
+    Parameters
+    ----------
+    server : str
+        URL for server to query (e.g., https://demo.dataverse.org)
+    collection : str
+        Name of collection to retrieve datasets from
+    metadata_format : str
+        Metadata export format (e.g., 'ddi', 'dataverse_json', 'datacite', 'schema.org')
+    """
+    def __init__(self, server: str, collection: str, metadata_format: str = 'ddi'):
+        self._name = 'Dataverse Collection Dataset Metadata Export Report'
+        self._description = f'Export dataset metadata in {metadata_format} format'
+        self._server_url = server
+        self._metadata_format = metadata_format
+        
+        # parameters
+        self.collection = collection
+        self._unique_authors = set()
+        self._unique_affiliations = set()
+        self._unique_locations = set()
+        
+        # metadata storage
+        self._raw_data = {}  # dict of persistent_id -> metadata
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def description(self) -> str:
+        return self._description
+
+    @property
+    def data(self):
+        return self._raw_data
+
+    def generate(self, api_token: str) -> dict:
+        """Generate the report by fetching metadata for all datasets"""
+        
+        # Get all collections
+        all_collections = {}
+        metadata = self._get_collection_metadata(self.collection, api_token)
+        all_collections[self.collection] = metadata
+        
+        subcollections = self._get_subcollections(self.collection, api_token)
+        all_collections = all_collections | subcollections
+        
+        # Get datasets for all collections
+        all_collection_datasets = {}
+        for collection in all_collections.keys():
+            if all_collections[collection]:
+                alias = all_collections[collection]['alias']
+                datasets = self._get_collection_datasets(alias, api_token)
+                all_collection_datasets = all_collection_datasets | datasets
+        
+        logging.info(f'Found {len(all_collection_datasets)} datasets before fetching details')
+    
+
+        # Get full dataset details for all datasets, batched
+
+        details_batch_size = 20
+        details_batch_counter = 0
+
+        for idx, (dataset_id, dataset_info) in enumerate(all_collection_datasets.items(), 1):
+
+            # if idx > 100:
+            #     logging.info("DEBUG: Stopping after 10 datasets for testing (metadata phase)")
+            #     break
+
+            if dataset_id:
+                alias = all_collection_datasets[dataset_id]['parent_alias']
+                details = self._get_dataset_details(alias, dataset_id, api_token)
+                all_collection_datasets[dataset_id].update(details)
+                
+                # DEBUG: Log what we got
+                persistent_url = all_collection_datasets[dataset_id].get('persistentUrl', 'MISSING')
+                #logging.debug(f"[{idx}] Dataset {dataset_id}: persistentUrl = {persistent_url}")
+            
+            details_batch_counter += 1
+            if details_batch_counter % details_batch_size == 0:
+                logging.info(f"Completed batch of {details_batch_size} dataset details. Pausing 10 seconds...")
+                time.sleep(10)
+        
+        logging.info(f'Found {len(all_collection_datasets)} datasets AFTER fetching details')
+        
+        # Fetch metadata for each dataset, with batching to prevent rate limiting
+        metadata_batch_size = 20
+        metadata_batch_counter = 0
+        datasets_with_url = 0
+        
+
+        if all_collection_datasets:
+            if all_collection_datasets:
+                for idx, (dataset_id, dataset_info) in enumerate(all_collection_datasets.items(), 1):
+                    # TEMP: Only process first 10 datasets for testing
+                    # if idx > 100:
+                    #     logging.info("DEBUG: Stopping after 10 datasets for testing")
+                    #     break
+                        
+                    try:
+                        persistent_url = dataset_info.get('persistentUrl', '')
+                        
+                        if not persistent_url:
+                            logging.warning(f"[{idx}] {dataset_id} has NO persistentUrl - SKIPPING")
+                            continue
+                        
+                        datasets_with_url += 1
+                        logging.info(f"[{idx}/{len(all_collection_datasets)}] Processing: {persistent_url}")
+                        
+                        metadata = self._get_dataset_metadata_export(persistent_url, api_token)
+                        if metadata:
+                            self._raw_data[persistent_url] = metadata
+                            logging.debug(f"✓ Got metadata for {persistent_url}")
+                        else:
+                            logging.debug(f"✗ No metadata for {persistent_url}")
+
+                        # BATCHING: After every batch_size datasets, pause
+                        metadata_batch_counter += 1
+                        if metadata_batch_counter % metadata_batch_size == 0:
+                            logging.info(f"Completed batch of {metadata_batch_size} datasets. Pausing 5 seconds...")
+                            time.sleep(5)
+                            
+                    except Exception as e:
+                        logging.error(f"Exception for {dataset_id}: {e}")
+            
+            logging.info(f'Datasets with persistentUrl: {datasets_with_url}')
+            logging.info(f'Retrieved metadata for {len(self._raw_data)} dataset(s)')
+            return self._raw_data
+
+    def _get_dataset_metadata_export(self, persistent_id: str, api_token: str) -> str:
+        """
+        Fetch exported dataset metadata from Dataverse API.
+        Tries :latest-published first, then falls back to :draft if needed.
+        """
+        
+        #logging.info(f"INPUT persistent_id: {repr(persistent_id)}")
+
+        # Parse persistent_id
+        if persistent_id.startswith('http'):
+            doi_part = persistent_id.split('doi.org/')[-1]
+            persistent_id_param = f'doi:{doi_part}'
+        else:
+            persistent_id_param = persistent_id
+        
+        #logging.info(f"PARSED persistent_id_param: {repr(persistent_id_param)}")
+        
+        url = f"{self._server_url}/api/datasets/export"
+        headers = {'X-Dataverse-key': api_token}
+
+        # ADD DELAY TO AVOID RATE LIMITING
+        time.sleep(0.5)  # 500ms delay between requests
+    
+        
+        #logging.debug(f"Fetching metadata for: {persistent_id_param}")
+        #logging.info(f"HEADERS: {headers}")
+        
+        # Try :latest-published first
+        versions_to_try = [':latest-published']
+        
+        for version in versions_to_try:
+            params = {
+                'exporter': self._metadata_format,
+                'persistentId': persistent_id_param,
+                'version': version
+            }
+            
+            try:
+                #full_url = f"{url}?exporter={params['exporter']}&persistentId={params['persistentId']}&version={params['version']}"
+                #logging.debug(f"Request URL: {full_url}")
+                #logging.debug(f"Headers: {headers}")
+                
+                response = requests.get(url, headers=headers, params=params, timeout=30)
+                
+                if response.status_code == 200:
+                    logging.debug(f"Successfully retrieved metadata using version={version}")
+                    return response.text
+                
+                elif response.status_code == 403:
+                    logging.warning(f"Access denied (403) for {persistent_id_param} with version={version}")
+                    continue
+                
+                elif response.status_code == 404:
+                    logging.debug(f"Version {version} not found for {persistent_id_param}, trying next...")
+                    continue
+                
+                else:
+                    logging.warning(f"Unexpected status {response.status_code}: {response.text}")
+                    continue
+                    
+            except requests.exceptions.RequestException as e:
+                logging.debug(f"Request failed for {persistent_id_param} with version={version}: {e}")
+                continue
+        
+        # If we get here, all versions failed
+        logging.warning(f"Could not retrieve metadata for {persistent_id_param} in any version")
+        return None
+
+    def export(self, file_format: str):
+        """Export the results"""
+        pass

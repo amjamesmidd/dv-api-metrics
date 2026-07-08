@@ -1,0 +1,494 @@
+Unique Authors (366):
+- ATandT
+- Abu Awad, Yara
+- Academic Institution
+- Agency for Healthcare Research and Quality (AHRQ)
+- Aggarwal, Sarika
+- Aguilera, Rosana
+- Akim Kumok
+- Alden, Kyle
+- Allen, Joseph
+- Amini, Heresh
+- Anastasios Tsoutis
+- Andersen, Zorana J
+- Andrea M. Burch
+- Ankita Bakshi
+- Apte, Joshua S
+- Argonne National Laboratoies
+- Atmospheric Composition Analysis Group (ACAG)
+- Atmospheric Science Data Center
+- Audirac, Michelle
+- Azimi, Parham
+- BWH
+- Bateni, Sayed
+- Benmarhnia, Tarik
+- Bezos Earth Fund
+- Biswas, Arpita
+- Blei, Alejandro
+- Bouzinier, Michael
+- Braun, Danielle
+- Brooks, Nina
+- Bureau of Health Workforce
+- Bureau of Indian Affairs (BIA)
+- Bureau of Land Management (BLM)
+- Burke, Marshall
+- Burney, Jennifer
+- CDC
+- CDC Agency for Toxic Substances and Disease Registry Place and Health - Geospatial Research, Analysis, and Services Program (GRASP)
+- CMS Chronic Conditions Data Warehouse (CCW)
+- California Department of Public Health
+- Carol J. DeFrances, Ph.D.
+- Caroline Blanton
+- Casey, Joan
+- Casey, Joan A
+- Casey, Joan A.
+- Castro, Edgar
+- Center for Air, Climate, & Energy Solutions
+- Center for Air, Climate, & Energy Solutions (CACES)
+- Center for Computational Toxicology and Exposure's (CCTE's) Great Lakes Toxicology Ecology Division (GLTED)
+- Center for Integrated Earth System Information
+- Center for Integrated Earth System Information - CIESIN - Columbia University
+- Center for Operational Oceanographic Products and Services
+- Center for Satellite Applications and Research
+- Centers for Disease Control and Prevention (CDC)
+- Centers for Disease Control and Prevention Agency for Toxic Substances and Disease Registry (ATSDR)
+- Centers for Disease Control and Prevention and Agency for Toxic Substances and Disease Registry
+- Centers for Medicare & Medicaid Services (CMS)
+- Cetron, Joshua
+- Childs, Marissa
+- Childs, Marissa L.
+- Choirat, Christine
+- Chris Ellis
+- Christopher J. Mumola
+- Climatology Lab
+- Colorado School of Mines
+- Considine, Ellen
+- Council on Environmental Quality (CEQ)
+- DIJKSTRA, Lewis
+- Danesh-Yazdi, Mahdieh
+- Daniel Mork
+- Danielle Braun
+- Danielle Kaeble
+- Daouk, Yasmine
+- Department of Health and Human Services (DHHS)
+- Devon Cribb
+- Di, Qian
+- Di, Quan
+- Division of Field Studies and Engineering Health Informatics Branch
+- Dominici, Francesca
+- Driscoll, Anne
+- Duren Banks, Ph.D.
+- E. Ann Carson, Ph.D
+- ENERGY STAR
+- EPA
+- EPA Envirofacts
+- EPA National Center for Environmental Economics (NCEE)
+- EPA's Office of Research and Development
+- Echevarría-Ramos, Mariangelí
+- Ellis, Erle
+- Emergency Response Division
+- Environmental Protection Agency
+- Environmental Protection Agency (EPA)
+- Evgeniy Gabrilovich
+- FEMA
+- FRA Safe Team
+- Fabian, M. Patricia
+- Federal Agency
+- Federal Aviation Administration (FAA)
+- Federal Communications Commission (FCC)
+- Federal Emergency Management Agency
+- Federal Emergency Management Agency (FEMA)
+- Federal Railroad Administration
+- Ferguson, Lauren
+- Fire Administration (USFA)
+- Fish and Wildlife Service (FWS)
+- Flores, Nina M.
+- Food Safety and Inspection Service
+- Francesca Dominici
+- Franklin, Meredith
+- GSA
+- Gabrilovich, Evgeniy
+- Galdi, Ben
+- Gaughan, Andrea
+- Gause, Emma
+- German Research Foundation (DFG)
+- Ghosh, Jo Kay
+- Giezendanner, Jonathan
+- Gilmour, Jonathan
+- GloH2O
+- Global Land Analysis and Discovery
+- Global Pasture Watch
+- Gould, Carlos
+- Greenhouse Gas Reporting Program (GHGRP)
+- Gregory A. Wellenius
+- Habre, Rima
+- Hao, Jiayuan
+- Health Assessment Workspace Collaborative (HAWC)
+- Health Canada
+- Health Effects Laboratory Division, Allergy and Clinical Immunology Branch
+- Health Effects Laboratory Division, Chemical and Biochemical Monitoring Branch
+- Health Effects Laboratory Division, Pathology and Physiology Research Branch
+- Health Resources & Services Administration
+- Health Resources and Services Administration
+- Heather Clifford
+- Heft-Neal, Sam
+- Hoenig, Michaela
+- Hope Smiley-McDonald, PhD
+- Hu, Kate
+- Hultquist, Carolynne
+- Human Resources & Services Administration
+- Indianapolis Metropolitan Planning Organization
+- Ingrid Binswanger, M.D.
+- Internal Revenue Service (IRS) Statistics of Income (SOI) program
+- International Institute for Applied Systems Analysis
+- Irene, Kezia
+- James, Allison
+- James, Peter
+- Jennifer Bronson, Ph.D.
+- Julie Goldman
+- Kaiser Foundation Health Plans
+- Kang, Choong-Min
+- Kansal, Mansi
+- Kaufmann, Talia
+- Kaur, Mahima
+- Kelly, James T
+- Kevin J. Lane
+- Khemani, Muskaan
+- Khoshnevis, Naeem
+- Kiang, Mathew V.
+- King Abdullah University of Science and Technology
+- Kingsbury Lee, Sophie-An
+- Kitch, James
+- Klompmaker, Jochem
+- Kloog, Itai
+- Koutrakis, Petros
+- LMOP
+- Lance Couzens
+- Land and Carbon Lab
+- Lane, Kevin
+- Laura M. Maruschak
+- Lauren G. Beatty
+- Levy, Jonathan
+- Li, Jessica
+- Liao, Jiawen
+- Liu, E Jen
+- Liu, Jinjie
+- Liu, Yang
+- Lyapustin, Alexei
+- Macaraeg, Sarah
+- Mansi Kansal
+- Manware, Mitchell
+- Mapping and monitoring Global Grasslands and Livestock
+- Margaret E. Noonan
+- Marques, Eva
+- Martinez, Juan F.
+- Mary P. Cowhig
+- McBrien, Heather
+- Merlo, Luca
+- Messier, Kyle
+- Metzger, Aaron
+- Michael G. Planty, Ph.D.
+- Michael T. Young
+- Michael, Bouzinier
+- Mickley, Loretta J
+- Milando, Chad
+- Milechin, Dennis
+- Minghao Qiu
+- Mock, Lauren
+- NOAA Fisheries
+- NYU Grossman School of Medicine
+- Nalluri, Shreya
+- National Aeronautics and Space Administration (NASA)
+- National Association of State Foresters (NASF)
+- National Cancer Institute
+- National Cancer Institute (NCI)
+- National Center for Health Statistics
+- National Centers for Environmental Information
+- National Centers for Environmental Information (NCEI)
+- National Centers for Environmental Prediction
+- National Environmental Satellite Data and Information Service
+- National Institute for Occupational Safety and Health
+- National Institute for Occupational Safety and Health (NIOSH)
+- National Institute of Health (NIH)
+- National Institute on Minority Health and Health Disparities (NIMHD)
+- National Institutes of Health (NIH)
+- National Oceanic and Atmospheric Administration (NOAA)
+- National Park Service (NPS)
+- National Science Foundation
+- National Transportation Safety Board (NTSB)
+- National Vital Statistics System
+- National Weather Service (NWS)
+- Nethery, Rachel C.
+- Nikolopoulos, Efthymios
+- Non-profit Organization
+- Nori-Sarma, Amruta
+- North Carolina Department of Environmental Quality
+- North Carolina Institute for Climate Studies (NCICS)
+- Northrop, Alexander J.
+- Northwest Alliance for Computational Science & Engineering (NACSE)
+- O'Brien, T. Daniel
+- Occupational Safety and Health Administration
+- Office of Air Quality Planning and Standards
+- Office of Atmospheric Protection
+- Office of Energy Efficiency & Renewable Energy
+- Office of Energy Efficiency and Renewable Energy
+- Office of Ground Water and Drinking Water
+- Office of Policy
+- Office of Satellite and Product Operations
+- Office of Sustainable Communities
+- OpenAQ
+- OpenStreetMap Foundation
+- Other
+- Other partners
+- Patrick Blatchford, PhD
+- Pei, Gen
+- Piepmeier, Logan
+- Pipeline and Hazardous Materials Safety Administration
+- Pogue, Kate
+- Popp, Zachary
+- Private Company
+- PurpleAir
+- Qiu, Minghao
+- Requia, Weeberb J
+- Robert Wood Johnson Foundation
+- Rundle, Jason
+- SAMHSA
+- SDWIS Environfacts
+- Sabath, Ben
+- Sabath, M Benjamin
+- Sabath, Matthew B
+- Sardana, Nishtha
+- Schantz, Kathryn
+- Schlegelmilch, Jeffrey
+- Schultz, Jennifer
+- Schwartz, Joel
+- Scott Ginder
+- Shailesh Bavadekar
+- Shekel, Tomer
+- Shi, Liuhua
+- Shtein, Alexandra
+- Silvern, Rachel
+- Song, Annie
+- Song, Insang
+- Sonoma County Department of Health Services
+- Spangler, Keith
+- Spangler, Keith R
+- Spoto, Federica
+- State Agency
+- Stowell, Jennifer
+- Stylianos Serghiou
+- Substance Abuse and Mental H
+- Substance Abuse and Mental Health
+- Sue Wing, Ian
+- Suprizio, Melissa P
+- Swapnil Vispute
+- Tapera, Tinashe
+- Tec, Mauricio
+- The Centers for Disease Control and Prevention (CDC)
+- The Council on Environmental Quality (CEQ)
+- The National Center for Health Workforce Analysis (NCHWA)
+- The Office of Climate Change and Health Equity (OCCHE)
+- Thomson, Dana R
+- Thomson-Browne, Dana
+- Todd D. Minton
+- Tomer Shekel
+- Trisovic, Ana
+- Tuholske, Cascade
+- U.S Global Change Research Program
+- U.S. Army Corps of Engineers
+- U.S. Centers for Disease Control and Prevention
+- U.S. Department of Agriculture - Economic Research Service
+- U.S. Department of Commerce
+- U.S. Department of Energy
+- U.S. Department of Transportation (DOT)
+- U.S. EPA
+- U.S. Environmental Protection Agency
+- U.S. Environmental Protection Agency Office of Atmospheric Programs (MC-6207A)
+- U.S. Global Change Research Program
+- U.S. Multi-Resolution Land Characteristics Consortium (MRLC)
+- U.S. National Science Foundation
+- US Centers for Disease Control and Prevention
+- US Department of Energy
+- US EPA
+- US Environmental Protection Agency
+- US Food and Drug Administration
+- US Office of Aircraft Services (OAS)
+- USDA Economic Research Service
+- USDOT Pipeline and Hazardous Materials Safety Administration
+- USEPA
+- United States Agency for International Development (USAID)
+- United States Census Bureau (US Census)
+- United States Department of Agriculture (USDA)
+- United States Department of Energy, Grid Deployment Office (GDO)
+- United States Department of the Interior (USDOI)
+- United States Department of the Interior (USDOI) - Office of Wildland Fire
+- United States Environmental Protection Agency
+- United States Environmental Protection Agency (EPA)
+- United States Forestry Service (USFS)
+- United States Geological Survey
+- United States Geological Survey (USGS)
+- University of California Merced
+- University of Cincinnati
+- University of Goiás, LAPIG
+- University of Wisconsin
+- University of Wisconsin Population Health Institute
+- Vega, Sofia
+- Veneri, Paolo
+- Vispute, Swapnil
+- Vivian, Do
+- Vosoughifar, Hamidreza
+- Wang, Sherrie
+- Wang, Yichen
+- Wang, Yujie
+- Washington State Health Care Authority
+- Washington University in St. Louis
+- Water Quality Portal (WQP)
+- Wei, Yaguang
+- Wellenius, Greg
+- Wellenius, Gregory
+- Wen, Jeffrey
+- Wilner, Lauren Blair
+- Wind Energy Technologies Office
+- Wolfson, Jack M
+- Woodward, Sophie
+- World Data Center for Climate (WDCC)
+- World Resource Institute
+- Wu, Xiao
+- Xiaoshi, Xing
+- Xing, Xiaoshi
+- Yale Center for Earth Observation (YCEO)
+- Yash Shah
+- Yoder, Naomi
+- Zhen Zeng, PhD
+- Zhu, Qiao
+- Zimmer, Andrew
+- de Alcantara Araujo, Diogo Stalin
+- de Sherbinin, Alex
+- yoder, naomi
+
+Unique Affiliations (98):
+- Ben-Gurion University of the Negev
+- Boston University
+- Boston University School of Public Health
+- Boston Universiy
+- Bureau of Justice Statistics
+- CDC
+- CDC - Centers for Disease Control and Prevention
+- CDC - National Center for Health Statistics
+- CIESIN, Columbia University
+- Center for Integrated Earth System Information (CIESIN), Columbia University
+- Center for Integrated Earth System Information - CIESIN - Columbia University
+- Center for Operational Oceanographic Products and Services
+- Chicago Tribune
+- Colorado School of Public Health
+- Columbia Climate School Center for Integrated Earth System Information
+- Columbia University
+- Columbia University Mailman School of Public Health
+- Creating Resilient Water Utilities (CRWU)
+- Department of Earth Sciences, Montana State University
+- Department of Environmental Health, Boston University School of Public Health, Boston, MA
+- Department of Geographic and Environmental Sciences, University of Louisville
+- Department of Labor
+- Department of Transportation
+- EPA
+- ESRI
+- Emory University
+- Emory University Rollins School of Public Health
+- Environmental Data and Governance Initiative
+- Environmental Protection Agency
+- European Commission, JRC
+- Federal Railroad Administration
+- Google LLC, Mountain View, CA
+- Google, LLC
+- Gran Sasso Science Institute
+- Harvard Data Science Initiative
+- Harvard Department of Earth and Planetary Sciences
+- Harvard John A. Paulson School of Engineering and Applied Sciences
+- Harvard T.H. Chan School of Public Health
+- Harvard University
+- Health Resources & Services Administration
+- Health Resources Service Administration
+- Heluna Health
+- Independent Consultant
+- Internal Revenue Service (IRS) Statistics of Income (SOI) program
+- Marketing for Change
+- Massachusetts Institute of Technology
+- NASA Goddard Space Flight Center
+- NOAA
+- National Institute for Occupational Safety and Health
+- National Institutes of Health
+- North Carolina State University
+- Northeastern University
+- Office of Coast Survey (OCS)
+- Place and Health - Geospatial Research, Analysis, and Services Program (GRASP)
+- Public Environmental Data Partners Datathon
+- RTI International
+- School of Environment and Sustainability, University of Michigan
+- Scripps Institution of Oceanography, University of California San Diego
+- Stanford University
+- Substance Abuse and Mental Health Services Administration
+- Substance Abuse and Mental Health Services Admnistration
+- The Institute for Quantitative Social Science Harvard University
+- Tsinghua University Vanke School of Public Health
+- U. S. Environmental Protection Agency
+- U.S Department of Energy
+- U.S. Agency for International Development (USAID)
+- U.S. Department of Energy
+- U.S. Department of Health and Human Services
+- U.S. Department of Transportation
+- U.S. EPA
+- U.S. Environmental Protection Agency
+- U.S. Federal
+- U.S. GSA
+- U.S. Global Change Research Program
+- US Department of Agriculture
+- US Department of Energy
+- US Department of Transportation
+- US EPA
+- USEPA
+- United States Department of Agricultures, USDA
+- University of California Berkeley College of Engineering
+- University of California, San Diego
+- University of Copenhagen Department of Public Health
+- University of Hawaii at Manoa
+- University of Maryland, Baltimore County
+- University of Southern California
+- University of Southern California Keck School of Medicine
+- University of Toronto School of the Environment
+- University of Washington
+- University of Washington School of Public Health
+- Yale University
+- https://ror.org/00j4k1h63
+- https://ror.org/00qzjvm58
+- https://ror.org/01cwqze88
+- https://ror.org/01qz5mb56
+- https://ror.org/03t3qg659
+- https://ror.org/03vek6s52
+- https://ror.org/05vt9qd57
+
+Unique Countries/Locations (25):
+- All
+- Arizona
+- California
+- Canada
+- Chicago
+- Connecticut
+- Contiguous US
+- Global
+- Global Coverage
+- Illinois
+- Kenya
+- Maine
+- Major US cities
+- Massachusetts
+- Mexico
+- N/A
+- Nevada
+- New Hampshire
+- New Mexico
+- Non-Endemic States
+- Other States
+- Rhode Island
+- United States
+- Utah
+- Vermont

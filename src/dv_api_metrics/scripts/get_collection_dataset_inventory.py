@@ -4,7 +4,13 @@ import logging
 import os
 from datetime import datetime
 from enum import Enum
+from dotenv import load_dotenv
+import polars as pl
+
+sys.path.insert(0, '/Users/alliej/Desktop/bu/CAFE/use_api/dv-api-metrics/src')
 from dv_api_metrics import report as rp
+
+load_dotenv('/Users/alliej/Desktop/bu/CAFE/use_api/dv-api-metrics/.env')
 
 class DVInstallation(Enum):
     HDV = 'hdv' # https://dataverse.harvard.edu
@@ -66,7 +72,14 @@ def main():
     report = rp.DataverseCollectionDatasetInventoryReport(server_url, collection)
     df = report.generate(api_token)
 
+    df = df.with_columns(
+        pl.col('locks').list.join('|').cast(pl.Utf8).alias('locks')
+    )
     df.write_csv(filename, separator='\t')
+
+    # print(df.schema)  # Show data types
+    # df.head()  # Show first few rows
+    # df.write_json(filename)
 
     logging.info(f'Wrote dataset inventory to: {filename}')
 

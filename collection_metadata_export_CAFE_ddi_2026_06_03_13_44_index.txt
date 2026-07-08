@@ -1,0 +1,52 @@
+Dataset Metadata Export Index
+Collection: CAFE
+Format: ddi
+Server: https://dataverse.harvard.edu
+Total datasets: 11
+Consolidated file: collection_metadata_export_CAFE_ddi_2026_06_03_13_44_consolidated.xml
+================================================================================
+
+1. https://doi.org/10.7910/DVN/TMWYHB
+   Format: ddi
+   Size: 3050 bytes
+
+2. https://doi.org/10.7910/DVN/V0BDE7
+   Format: ddi
+   Size: 7125 bytes
+
+3. https://doi.org/10.7910/DVN/G8IHL2
+   Format: ddi
+   Size: 3541 bytes
+
+4. https://doi.org/10.7910/DVN/ART54Z
+   Format: ddi
+   Size: 4594 bytes
+
+5. https://doi.org/10.7910/DVN/DJVMTV
+   Format: ddi
+   Size: 12031 bytes
+
+6. https://doi.org/10.7910/DVN/J0IZWX
+   Format: ddi
+   Size: 16334 bytes
+
+7. https://doi.org/10.7910/DVN/JCXHDX
+   Format: ddi
+   Size: 12297 bytes
+
+8. https://doi.org/10.7910/DVN/K71AJS
+   Format: ddi
+   Size: 24608 bytes
+
+9. https://doi.org/10.7910/DVN/QN92JF
+   Format: ddi
+   Size: 9271 bytes
+
+10. https://doi.org/10.7910/DVN/GTLASR
+   Format: ddi
+   Size: 14248 bytes
+
+11. https://doi.org/10.7910/DVN/KCOHVH
+   Format: ddi
+   Size: 2610 bytes
+

@@ -1,0 +1,10 @@
+Dataset Metadata Export Index
+Collection: CAFE
+Format: ddi
+Server: https://dataverse.harvard.edu
+Total datasets: 1
+================================================================================
+
+1. https://doi.org/10.7910/DVN/TMWYHB
+   File: collection_metadata_export_CAFE_ddi_2026_05_28_14_57_dataset_1_https___doi.org_10.7910_DVN_TMWYHB.xml
+

@@ -1,0 +1,356 @@
+Dataset Metadata Export Index
+Collection: CAFE
+Format: ddi
+Server: https://dataverse.harvard.edu
+Total datasets: 87
+Consolidated file: collection_metadata_export_CAFE_ddi_2026_06_03_13_46_consolidated.xml
+================================================================================
+
+1. https://doi.org/10.7910/DVN/TMWYHB
+   Format: ddi
+   Size: 3050 bytes
+
+2. https://doi.org/10.7910/DVN/V0BDE7
+   Format: ddi
+   Size: 7125 bytes
+
+3. https://doi.org/10.7910/DVN/G8IHL2
+   Format: ddi
+   Size: 3541 bytes
+
+4. https://doi.org/10.7910/DVN/ART54Z
+   Format: ddi
+   Size: 4594 bytes
+
+5. https://doi.org/10.7910/DVN/DJVMTV
+   Format: ddi
+   Size: 12031 bytes
+
+6. https://doi.org/10.7910/DVN/J0IZWX
+   Format: ddi
+   Size: 16334 bytes
+
+7. https://doi.org/10.7910/DVN/JCXHDX
+   Format: ddi
+   Size: 12297 bytes
+
+8. https://doi.org/10.7910/DVN/K71AJS
+   Format: ddi
+   Size: 24608 bytes
+
+9. https://doi.org/10.7910/DVN/QN92JF
+   Format: ddi
+   Size: 9271 bytes
+
+10. https://doi.org/10.7910/DVN/GTLASR
+   Format: ddi
+   Size: 14248 bytes
+
+11. https://doi.org/10.7910/DVN/KCOHVH
+   Format: ddi
+   Size: 2610 bytes
+
+12. https://doi.org/10.7910/DVN/QF1XRK
+   Format: ddi
+   Size: 24453 bytes
+
+13. https://doi.org/10.7910/DVN/ZCMV6N
+   Format: ddi
+   Size: 5950 bytes
+
+14. https://doi.org/10.7910/DVN/YQPWKG
+   Format: ddi
+   Size: 10975 bytes
+
+15. https://doi.org/10.7910/DVN/3C0C7P
+   Format: ddi
+   Size: 134659 bytes
+
+16. https://doi.org/10.7910/DVN/BPNZJA
+   Format: ddi
+   Size: 9641 bytes
+
+17. https://doi.org/10.7910/DVN/2DJRR4
+   Format: ddi
+   Size: 18399 bytes
+
+18. https://doi.org/10.7910/DVN/JQOYDI
+   Format: ddi
+   Size: 8754 bytes
+
+19. https://doi.org/10.7910/DVN/EXWQHL
+   Format: ddi
+   Size: 3834 bytes
+
+20. https://doi.org/10.7910/DVN/DWILBW
+   Format: ddi
+   Size: 3729 bytes
+
+21. https://doi.org/10.7910/DVN/58C6HG
+   Format: ddi
+   Size: 157138 bytes
+
+22. https://doi.org/10.7910/DVN/LUFKYG
+   Format: ddi
+   Size: 156090 bytes
+
+23. https://doi.org/10.7910/DVN/DGXCTH
+   Format: ddi
+   Size: 155021 bytes
+
+24. https://doi.org/10.7910/DVN/3H7DNP
+   Format: ddi
+   Size: 133578 bytes
+
+25. https://doi.org/10.7910/DVN/HNVCBR
+   Format: ddi
+   Size: 180809 bytes
+
+26. https://doi.org/10.7910/DVN/UAYKSU
+   Format: ddi
+   Size: 34101 bytes
+
+27. https://doi.org/10.7910/DVN/AKNUWF
+   Format: ddi
+   Size: 4483 bytes
+
+28. https://doi.org/10.7910/DVN/WXHLOF
+   Format: ddi
+   Size: 3160 bytes
+
+29. https://doi.org/10.7910/DVN/9VBZUL
+   Format: ddi
+   Size: 4708 bytes
+
+30. https://doi.org/10.7910/DVN/CEXWYQ
+   Format: ddi
+   Size: 13133 bytes
+
+31. https://doi.org/10.7910/DVN/EKSCCU
+   Format: ddi
+   Size: 6186 bytes
+
+32. https://doi.org/10.7910/DVN/0WILGX
+   Format: ddi
+   Size: 9321 bytes
+
+33. https://doi.org/10.7910/DVN/MTY8DO
+   Format: ddi
+   Size: 12648 bytes
+
+34. https://doi.org/10.7910/DVN/TN9JTT
+   Format: ddi
+   Size: 17421 bytes
+
+35. https://doi.org/10.7910/DVN/FYW1VU
+   Format: ddi
+   Size: 3914 bytes
+
+36. https://doi.org/10.7910/DVN/TEM9JH
+   Format: ddi
+   Size: 9776 bytes
+
+37. https://doi.org/10.7910/DVN/XLRSF0
+   Format: ddi
+   Size: 2417793 bytes
+
+38. https://doi.org/10.7910/DVN/33JJXT
+   Format: ddi
+   Size: 8117 bytes
+
+39. https://doi.org/10.7910/DVN/MBABAL
+   Format: ddi
+   Size: 3937 bytes
+
+40. https://doi.org/10.7910/DVN/05FVSE
+   Format: ddi
+   Size: 11171 bytes
+
+41. https://doi.org/10.7910/DVN/MWMWPH
+   Format: ddi
+   Size: 4577 bytes
+
+42. https://doi.org/10.7910/DVN/GMV8WG
+   Format: ddi
+   Size: 116887 bytes
+
+43. https://doi.org/10.7910/DVN/L7YF2G
+   Format: ddi
+   Size: 33601 bytes
+
+44. https://doi.org/10.7910/DVN/3ZU0AS
+   Format: ddi
+   Size: 28295 bytes
+
+45. https://doi.org/10.7910/DVN/9V5WCM
+   Format: ddi
+   Size: 2373 bytes
+
+46. https://doi.org/10.7910/DVN/QR4N7V
+   Format: ddi
+   Size: 34581 bytes
+
+47. https://doi.org/10.7910/DVN/MBAVER
+   Format: ddi
+   Size: 4889 bytes
+
+48. https://doi.org/10.7910/DVN/SYNPBS
+   Format: ddi
+   Size: 125754 bytes
+
+49. https://doi.org/10.7910/DVN/VHNJBD
+   Format: ddi
+   Size: 6593 bytes
+
+50. https://doi.org/10.7910/DVN/OKEATQ
+   Format: ddi
+   Size: 456634 bytes
+
+51. https://doi.org/10.7910/DVN/2NT5CV
+   Format: ddi
+   Size: 121391 bytes
+
+52. https://doi.org/10.7910/DVN/9VDUAP
+   Format: ddi
+   Size: 9667 bytes
+
+53. https://doi.org/10.7910/DVN/KRZS4M
+   Format: ddi
+   Size: 3039 bytes
+
+54. https://doi.org/10.7910/DVN/5XBJBM
+   Format: ddi
+   Size: 3950 bytes
+
+55. https://doi.org/10.7910/DVN/HYNJSZ
+   Format: ddi
+   Size: 10379 bytes
+
+56. https://doi.org/10.7910/DVN/Y1WNU7
+   Format: ddi
+   Size: 13191 bytes
+
+57. https://doi.org/10.7910/DVN/CICODO
+   Format: ddi
+   Size: 4871 bytes
+
+58. https://doi.org/10.7910/DVN/N3IEXS
+   Format: ddi
+   Size: 5775 bytes
+
+59. https://doi.org/10.7910/DVN/BG0OHO
+   Format: ddi
+   Size: 6037 bytes
+
+60. https://doi.org/10.7910/DVN/0U2TCB
+   Format: ddi
+   Size: 19556 bytes
+
+61. https://doi.org/10.7910/DVN/JOEZDP
+   Format: ddi
+   Size: 195050 bytes
+
+62. https://doi.org/10.7910/DVN/FYTME3
+   Format: ddi
+   Size: 15277 bytes
+
+63. https://doi.org/10.7910/DVN/4GDRB1
+   Format: ddi
+   Size: 21517 bytes
+
+64. https://doi.org/10.7910/DVN/3PP3ZE
+   Format: ddi
+   Size: 33156 bytes
+
+65. https://doi.org/10.7910/DVN/PXUBUN
+   Format: ddi
+   Size: 194517 bytes
+
+66. https://doi.org/10.7910/DVN/XDBV6J
+   Format: ddi
+   Size: 3560 bytes
+
+67. https://doi.org/10.7910/DVN/MZO8HA
+   Format: ddi
+   Size: 51586 bytes
+
+68. https://doi.org/10.7910/DVN/HKXZ1E
+   Format: ddi
+   Size: 102719 bytes
+
+69. https://doi.org/10.7910/DVN/QN75GF
+   Format: ddi
+   Size: 24608 bytes
+
+70. https://doi.org/10.7910/DVN/UTOHX5
+   Format: ddi
+   Size: 3348 bytes
+
+71. https://doi.org/10.7910/DVN/906GEU
+   Format: ddi
+   Size: 4141 bytes
+
+72. https://doi.org/10.7910/DVN/SYJIM7
+   Format: ddi
+   Size: 8528 bytes
+
+73. https://doi.org/10.7910/DVN/QIZWWE
+   Format: ddi
+   Size: 93807 bytes
+
+74. https://doi.org/10.7910/DVN/F89A4R
+   Format: ddi
+   Size: 3459 bytes
+
+75. https://doi.org/10.7910/DVN/EILHHQ
+   Format: ddi
+   Size: 10267 bytes
+
+76. https://doi.org/10.7910/DVN/IOI5B3
+   Format: ddi
+   Size: 3595 bytes
+
+77. https://doi.org/10.7910/DVN/BFCWDK
+   Format: ddi
+   Size: 5028 bytes
+
+78. https://doi.org/10.7910/DVN/L0MWHW
+   Format: ddi
+   Size: 8198 bytes
+
+79. https://doi.org/10.7910/DVN/CVJGK4
+   Format: ddi
+   Size: 7290 bytes
+
+80. https://doi.org/10.7910/DVN/NYADRG
+   Format: ddi
+   Size: 8531 bytes
+
+81. https://doi.org/10.7910/DVN/OOVIVW
+   Format: ddi
+   Size: 5351 bytes
+
+82. https://doi.org/10.7910/DVN/XPZZAG
+   Format: ddi
+   Size: 4147 bytes
+
+83. https://doi.org/10.7910/DVN/ZSJJ05
+   Format: ddi
+   Size: 6114 bytes
+
+84. https://doi.org/10.7910/DVN/NH9AES
+   Format: ddi
+   Size: 8433 bytes
+
+85. https://doi.org/10.7910/DVN/PUBRSG
+   Format: ddi
+   Size: 6479 bytes
+
+86. https://doi.org/10.7910/DVN/RPH1UE
+   Format: ddi
+   Size: 6580 bytes
+
+87. https://doi.org/10.7910/DVN/8DXK6T
+   Format: ddi
+   Size: 6256 bytes
+
