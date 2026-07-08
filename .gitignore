@@ -2,6 +2,7 @@
 *.txt
 *.xml
 *.csv
+*.tsv
 
 src/dv_api_metrics/__pycache__/
 src/dv_api_metrics/venv/
